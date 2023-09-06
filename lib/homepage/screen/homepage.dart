@@ -5,7 +5,6 @@ import 'package:cinema_movie/homepage/screen/widget.dart';
 import 'package:cinema_movie/homepage/screen/widget/feature_movie.dart';
 import 'package:cinema_movie/homepage/screen/widget/top_series_movie.dart';
 import 'package:cinema_movie/widget/appbarmovie.dart';
-import 'package:cinema_movie/widget/bottomnav.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -25,7 +24,6 @@ class _HomepageState extends ConsumerState<Homepage> {
 
     return Scaffold(
         backgroundColor: kSecondaryColor,
-        bottomNavigationBar: const CustomBottomNavigation(),
         appBar: appbarmovie(),
         body: SingleChildScrollView(
           child: Column(
