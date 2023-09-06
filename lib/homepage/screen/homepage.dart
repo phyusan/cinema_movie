@@ -1,52 +1,126 @@
 import 'package:cinema_movie/const.dart';
+import 'package:cinema_movie/homepage/model/movie_list_model.dart';
+import 'package:cinema_movie/homepage/screen/moviedetail.dart';
+import 'package:cinema_movie/homepage/screen/widget.dart';
+import 'package:cinema_movie/homepage/screen/widget/feature_movie.dart';
+import 'package:cinema_movie/homepage/screen/widget/top_series_movie.dart';
+import 'package:cinema_movie/widget/appbarmovie.dart';
+import 'package:cinema_movie/widget/bottomnav.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
+import 'package:cinema_movie/homepage/data/provider.dart';
 
-class Homepage extends StatefulWidget {
+class Homepage extends ConsumerStatefulWidget {
   const Homepage({super.key});
 
   @override
-  State<Homepage> createState() => _HomepageState();
+  ConsumerState<Homepage> createState() => _HomepageState();
 }
 
-class _HomepageState extends State<Homepage> {
+class _HomepageState extends ConsumerState<Homepage> {
   @override
   Widget build(BuildContext context) {
+    final data = ref.watch(mov);
+
     return Scaffold(
-      appBar: AppBar(
-          toolbarHeight: 130,
-          backgroundColor: kSecondaryColor,
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 10),
-            child: SvgPicture.asset(logophoto, width: 100),
-          ),
-          actions: [SvgPicture.asset(settingphoto, color: Colors.green)],
-          bottom: PreferredSize(
-            preferredSize: Size.zero,
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                height: 60,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(10),
-                  color: kSearchbarColor,
-                ),
-                child: TextField(
-                  decoration: InputDecoration(
-                    contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 15, vertical: 20),
-                    hintText: 'Search',
-                    hintStyle: const TextStyle(color: Color(0xff9CA3AF)),
-                    prefixIcon: IconButton(
-                      icon: const Icon(Icons.search),
-                      onPressed: () {},
-                    ),
-                    enabledBorder: const OutlineInputBorder(),
-                  ),
+        backgroundColor: kSecondaryColor,
+        bottomNavigationBar: const CustomBottomNavigation(),
+        appBar: appbarmovie(),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(10),
+                child: TextRowWidget(
+                  Text1: 'RECOMMENDED',
                 ),
               ),
-            ),
-          )),
-    );
+              Padding(
+                padding: const EdgeInsets.only(top: 20, left: 20),
+                child: data.when(
+                  data: (data) {
+                    List<MovieList> result = data.map((e) => e).toList();
+                    print(result.length);
+
+                    return SizedBox(
+                      height: 450,
+                      child: GridView.builder(
+                          shrinkWrap: true,
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
+                                  childAspectRatio: 0.65,
+                                  // crossAxisSpacing: 10,
+                                  // mainAxisSpacing: 10,
+                                  crossAxisCount: 2),
+                          itemCount: result.length,
+                          itemBuilder: ((context, index) {
+                            return GestureDetector(
+                              onTap: () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) =>
+                                          const MovieDetail()),
+                                );
+                              },
+                              child: SizedBox(
+                                height: 500,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      width: 150,
+                                      height: 200,
+                                      child: ClipRRect(
+                                        borderRadius: BorderRadius.circular(20),
+                                        child: const Image(
+                                            image: AssetImage(
+                                                'assets/svg/japan food1.png'),
+                                            fit: BoxFit.cover),
+                                      ),
+                                    ),
+                                    const SizedBox(height: 5),
+                                    SvgPicture.asset(ratingphoto),
+                                    const SizedBox(height: 5),
+                                    Text(result[index].title!,
+                                        softWrap: true,
+                                        maxLines: 1,
+                                        style: const TextStyle(
+                                          fontSize: 18,
+                                          color: kTextColorOne,
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: 'Product Sans',
+                                        )),
+                                    Text(result[index].type!,
+                                        style: const TextStyle(
+                                          fontSize: 13,
+                                          color: kTextColorTwo,
+                                          fontWeight: FontWeight.w500,
+                                          fontFamily: 'Product Sans',
+                                        )),
+                                  ],
+                                ),
+                              ),
+                            );
+                          })),
+                    );
+                  },
+                  error: (Object error, StackTrace stackTrace) {
+                    return Text(error.toString(),
+                        style: const TextStyle(color: Colors.white));
+                  },
+                  loading: () {
+                    return const Center(child: CircularProgressIndicator());
+                  },
+                ),
+              ),
+              const SizedBox(height: 10),
+              const TopSeriesWidget(),
+              const SizedBox(height: 10),
+              const FeatureMovieWidget()
+            ],
+          ),
+        ));
   }
 }
