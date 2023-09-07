@@ -1,10 +1,10 @@
 import 'package:cinema_movie/const.dart';
 import 'package:cinema_movie/homepage/model/movie_list_model.dart';
-import 'package:cinema_movie/homepage/screen/moviedetail.dart';
-import 'package:cinema_movie/homepage/screen/widget.dart';
-import 'package:cinema_movie/homepage/screen/widget/feature_movie.dart';
-import 'package:cinema_movie/homepage/screen/widget/top_series_movie.dart';
+import 'package:cinema_movie/homepage/screen/Home_page/moviedetail.dart';
+import 'package:cinema_movie/homepage/screen/Home_page/widget/feature_movie.dart';
+import 'package:cinema_movie/homepage/screen/Home_page/widget/top_series_movie.dart';
 import 'package:cinema_movie/widget/appbarmovie.dart';
+import 'package:cinema_movie/widget/textwidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
@@ -59,7 +59,7 @@ class _HomepageState extends ConsumerState<Homepage> {
                                   context,
                                   MaterialPageRoute(
                                       builder: (context) =>
-                                          const MovieDetail()),
+                                          MovieDetail(detmov: result[index])),
                                 );
                               },
                               child: SizedBox(
@@ -72,9 +72,11 @@ class _HomepageState extends ConsumerState<Homepage> {
                                       height: 200,
                                       child: ClipRRect(
                                         borderRadius: BorderRadius.circular(20),
-                                        child: const Image(
-                                            image: AssetImage(
-                                                'assets/svg/japan food1.png'),
+                                        child: Image(
+                                            image: NetworkImage(
+                                                result[index].imageUrls![0]),
+                                            //  AssetImage(
+                                            //     'assets/svg/japan food1.png'),
                                             fit: BoxFit.cover),
                                       ),
                                     ),
