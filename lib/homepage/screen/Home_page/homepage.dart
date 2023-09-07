@@ -58,8 +58,8 @@ class _HomepageState extends ConsumerState<Homepage> {
                                 Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) =>
-                                          MovieDetail(detmov: result[index])),
+                                      builder: (context) => MovieDetail(
+                                          uniqueid: result[index].uniqueID)),
                                 );
                               },
                               child: SizedBox(

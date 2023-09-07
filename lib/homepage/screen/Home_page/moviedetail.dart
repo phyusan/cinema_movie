@@ -1,15 +1,26 @@
 import 'package:cinema_movie/const.dart';
+import 'package:cinema_movie/homepage/data/api.dart';
 import 'package:cinema_movie/homepage/model/movie_list_model.dart';
 
 import 'package:cinema_movie/widget/textwidget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:hooks_riverpod/hooks_riverpod.dart';
 
-class MovieDetail extends StatelessWidget {
-  const MovieDetail({super.key, required this.detmov});
-  final MovieList? detmov;
+class MovieDetail extends ConsumerStatefulWidget {
+  const MovieDetail({super.key, required this.uniqueid});
+  final String? uniqueid;
+
+  @override
+  ConsumerState<MovieDetail> createState() => _MovieDetailState();
+}
+
+class _MovieDetailState extends ConsumerState<MovieDetail> {
   @override
   Widget build(BuildContext context) {
+    final detmov = ref.watch(getmovProvider);
+
+    print(detmov);
     return Scaffold(
       bottomNavigationBar: Container(
         color: const Color(0xff1F2937),

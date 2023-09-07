@@ -23,18 +23,18 @@ class ExpireBooking extends StatelessWidget {
                             style: TextStyle(
                                 fontSize: 22,
                                 fontWeight: FontWeight.w400,
-                                color: Color(0xff0F172A))),
+                                color: kTextColorThree)),
                         const Text('TROTBA0305',
                             style: TextStyle(
                                 fontSize: 25,
                                 fontWeight: FontWeight.w700,
-                                color: Color(0xff0F172A))),
+                                color: kTextColorThree)),
                         const Text(
                             'Please use this booking code to buy JCGV ticket',
                             style: TextStyle(
                                 fontSize: 12,
                                 fontWeight: FontWeight.w300,
-                                color: Color(0xff0F172A))),
+                                color: kTextColorThree)),
                         Container(
                             margin: const EdgeInsets.only(
                                 left: 10, right: 10, top: 15, bottom: 10),
@@ -134,9 +134,243 @@ class ExpireBooking extends StatelessWidget {
                   ],
                 ),
               ),
+              const Divider(),
+              const PlaceWidget(),
+              const Divider(),
+              const ThreaterWidget(),
+              const Divider(),
+              const Padding(
+                padding: EdgeInsets.only(left: 20, right: 10),
+                child: SizedBox(
+                    width: double.infinity,
+                    child: Stack(
+                      children: [
+                        Text('SEAT NUMBERS',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w300,
+                                color: kTextColorThree)),
+                        SeatnumberWidget(),
+                        Padding(
+                          padding: EdgeInsets.only(top: 60),
+                          child: SeatnumberWidget(),
+                        )
+                      ],
+                    )),
+              ),
+
+              //Terms of Services
+              Container(
+                color: Colors.white,
+                child: const Padding(
+                  padding: EdgeInsets.only(left: 10, top: 15, bottom: 20),
+                  child: Column(
+                    children: [
+                      Text('Terms of Services',
+                          style: TextStyle(
+                              fontSize: 18,
+                              fontWeight: FontWeight.w700,
+                              color: kTextColorThree)),
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, left: 5),
+                        child: Text(
+                            '  Fusce volutpat euismod et pretium id, volutpat et tortor. In vulputate lorem quis dui vestibulum, vitae imperdiet diam bibendum. ',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w400,
+                                color: kTextColorThree)),
+                      ),
+                      //2sentence
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, left: 5),
+                        child: Text(
+                            '  Nunc sapien diam, euismod et pretium id, volutpat et tortor. In vulputate lorem quis dui vestibulum, vitae imperdiet diam bibendum. ',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w400,
+                                color: kTextColorThree)),
+                      ),
+
+                      Padding(
+                        padding: EdgeInsets.only(top: 10, left: 5),
+                        child: Text(
+                            ' In vitae scelerisque augue, in varius eros. Nunc sapien diam, euismod et pretium id, volutpat et tortor. In vulputate lorem quis dui vestibulum, vitae imperdiet diam bibendum. ',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.w400,
+                                color: kTextColorThree)),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+
+              Container(
+                  margin: const EdgeInsets.only(top: 30),
+                  child: Column(
+                    children: [
+                      const Text('yammobots  logo',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w800,
+                            color: Color(0xff2563EB),
+                            fontSize: 25,
+                          )),
+                      const Text('Call us for more help',
+                          style: TextStyle(
+                            fontWeight: FontWeight.w400,
+                            color: kTextColorThree,
+                            fontSize: 15,
+                          )),
+                      Container(
+                          margin: const EdgeInsets.only(
+                              left: 50, right: 50, top: 30, bottom: 40),
+                          height: 50,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              color: const Color(0xff2563EB)),
+                          child: const Center(
+                              child: Text('Technical Phone',
+                                  style: TextStyle(
+                                      color: Colors.white,
+                                      fontWeight: FontWeight.w500,
+                                      fontSize: 18))))
+                    ],
+                  ))
             ],
           ),
         ));
+  }
+}
+
+class SeatnumberWidget extends StatelessWidget {
+  const SeatnumberWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const Padding(
+      padding: EdgeInsets.only(top: 30),
+      child: Stack(
+        children: [
+          Text('01',
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.w300,
+                  color: kTextColorThree)),
+          Padding(
+            padding: EdgeInsets.only(left: 50),
+            child: Text('A04',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: kTextColorThree)),
+          ),
+          Align(
+            alignment: Alignment.centerRight,
+            child: Padding(
+              padding: EdgeInsets.only(right: 10),
+              child: Text('11500 MMK',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w700,
+                      color: kTextColorThree)),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 30),
+            child: Align(
+              alignment: Alignment.bottomRight,
+              child: Padding(
+                padding: EdgeInsets.only(right: 10),
+                child: Text('-Remove',
+                    style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        color: kboxColor)),
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(top: 50),
+            child: Divider(),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class ThreaterWidget extends StatelessWidget {
+  const ThreaterWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return const SizedBox(
+      width: double.infinity,
+      child: Padding(
+        padding: EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 10),
+        child: Stack(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          // crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('THEATRE',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w300,
+                    color: kTextColorThree)),
+            Padding(
+              padding: EdgeInsets.only(top: 30),
+              child: Text('Cine & Forte',
+                  style: TextStyle(
+                      fontSize: 22,
+                      fontWeight: FontWeight.w700,
+                      color: kTextColorThree)),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class PlaceWidget extends StatelessWidget {
+  const PlaceWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: const Padding(
+        padding: EdgeInsets.only(top: 10, bottom: 10, left: 20, right: 10),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text('Cinema',
+                style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w300,
+                    color: kTextColorThree)),
+            Text('Junctin City',
+                style: TextStyle(
+                    fontSize: 22,
+                    fontWeight: FontWeight.w700,
+                    color: kTextColorThree)),
+            Text(
+                'Level 5, Junction City,Corner of, Bo Gyoke Rd, Yangon, Myanmar (Burma)',
+                softWrap: true,
+                maxLines: 3,
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w400,
+                    color: kTextColorThree)),
+          ],
+        ),
+      ),
+    );
   }
 }
 

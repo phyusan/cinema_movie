@@ -5,6 +5,7 @@ const kSecondaryColor = Color(0xff111827);
 const kboxColor = Color(0xffE11D48);
 const kTextColorOne = Color(0xffF9FAFB);
 const kTextColorTwo = Color(0xFF757575);
+const kTextColorThree = Color(0xff0F172A);
 
 const kborderColor = Color.fromARGB(255, 253, 222, 161);
 const kSearchbarColor = Color(0xff1F2937);
