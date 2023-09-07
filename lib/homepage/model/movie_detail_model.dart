@@ -5,8 +5,8 @@ class DetailMovie {
   String? runTime;
   String? director;
   String? cast;
-  String? production;
-  String? distribution;
+  //String? production;
+  //String? distribution;
   String? type;
   String? coverImageUrl;
   String? trailer;
@@ -22,8 +22,8 @@ class DetailMovie {
       this.runTime,
       this.director,
       this.cast,
-      this.production,
-      this.distribution,
+      //   this.production,
+      //  this.distribution,
       this.type,
       this.coverImageUrl,
       this.trailer,
@@ -39,8 +39,8 @@ class DetailMovie {
     runTime = json['RunTime'];
     director = json['Director'];
     cast = json['Cast'];
-    production = json['Production'];
-    distribution = json['Distribution'];
+    // production = json['Production'];
+    // distribution = json['Distribution'];
     type = json['Type'];
     coverImageUrl = json['CoverImageUrl'];
     trailer = json['Trailer'];
@@ -58,8 +58,8 @@ class DetailMovie {
     data['RunTime'] = runTime;
     data['Director'] = director;
     data['Cast'] = cast;
-    data['Production'] = production;
-    data['Distribution'] = distribution;
+    //data['Production'] = production;
+    //data['Distribution'] = distribution;
     data['Type'] = type;
     data['CoverImageUrl'] = coverImageUrl;
     data['Trailer'] = trailer;

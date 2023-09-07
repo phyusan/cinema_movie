@@ -33,23 +33,20 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             currentIndex: _selectedIndex,
             onTap: _onItemTapped,
             items: [
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                   icon: Icon(
                     Icons.home,
-                    size: _selectedIndex == 0 ? 30 : 25,
                   ),
                   // Icon(Icons.home, size: _selectedIndex == 0 ? 30 : 20),
                   label: "Home"),
-              BottomNavigationBarItem(
+              const BottomNavigationBarItem(
                   icon: Icon(
                     Icons.book,
-                    size: _selectedIndex == 1 ? 30 : 25,
                   ),
                   // Icon(Icons.home, size: _selectedIndex == 0 ? 30 : 20),
                   label: "Category"),
               BottomNavigationBarItem(
                   icon: Icon(Icons.person,
-                      size: _selectedIndex == 2 ? 30 : 25,
                       color: _selectedIndex == 2 ? kboxColor : Colors.white),
                   // Icon(Icons.home, size: _selectedIndex == 0 ? 30 : 20),
                   label: "Favourite"),

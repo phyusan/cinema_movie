@@ -1,4 +1,5 @@
 import 'package:cinema_movie/const.dart';
+import 'package:cinema_movie/homepage/screen/Booking_page/BookingDetail/ticket.dart';
 import 'package:cinema_movie/widget/appbarmovie.dart';
 import 'package:flutter/material.dart';
 
@@ -158,87 +159,142 @@ class ExpireBooking extends StatelessWidget {
                       ],
                     )),
               ),
-
-              //Terms of Services
-              Container(
-                color: Colors.white,
-                child: const Padding(
-                  padding: EdgeInsets.only(left: 10, top: 15, bottom: 20),
-                  child: Column(
-                    children: [
-                      Text('Terms of Services',
-                          style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.w700,
-                              color: kTextColorThree)),
-                      Padding(
-                        padding: EdgeInsets.only(top: 10, left: 5),
-                        child: Text(
-                            '  Fusce volutpat euismod et pretium id, volutpat et tortor. In vulputate lorem quis dui vestibulum, vitae imperdiet diam bibendum. ',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w400,
-                                color: kTextColorThree)),
-                      ),
-                      //2sentence
-                      Padding(
-                        padding: EdgeInsets.only(top: 10, left: 5),
-                        child: Text(
-                            '  Nunc sapien diam, euismod et pretium id, volutpat et tortor. In vulputate lorem quis dui vestibulum, vitae imperdiet diam bibendum. ',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w400,
-                                color: kTextColorThree)),
-                      ),
-
-                      Padding(
-                        padding: EdgeInsets.only(top: 10, left: 5),
-                        child: Text(
-                            ' In vitae scelerisque augue, in varius eros. Nunc sapien diam, euismod et pretium id, volutpat et tortor. In vulputate lorem quis dui vestibulum, vitae imperdiet diam bibendum. ',
-                            style: TextStyle(
-                                fontSize: 18,
-                                fontWeight: FontWeight.w400,
-                                color: kTextColorThree)),
-                      ),
-                    ],
-                  ),
+              const Padding(
+                padding: EdgeInsets.only(left: 20, right: 20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text('Tickets Fees(total)',
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400,
+                            color: kTextColorThree)),
+                    Text('23000 MMK',
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                            color: kTextColorThree)),
+                  ],
                 ),
               ),
 
-              Container(
-                  margin: const EdgeInsets.only(top: 30),
-                  child: Column(
-                    children: [
-                      const Text('yammobots  logo',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w800,
-                            color: Color(0xff2563EB),
-                            fontSize: 25,
-                          )),
-                      const Text('Call us for more help',
-                          style: TextStyle(
-                            fontWeight: FontWeight.w400,
-                            color: kTextColorThree,
-                            fontSize: 15,
-                          )),
-                      Container(
-                          margin: const EdgeInsets.only(
-                              left: 50, right: 50, top: 30, bottom: 40),
-                          height: 50,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              color: const Color(0xff2563EB)),
-                          child: const Center(
-                              child: Text('Technical Phone',
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: 18))))
-                    ],
-                  ))
+              const Padding(
+                padding: EdgeInsets.all(30),
+                child: Image(
+                    image: AssetImage(
+                  jcgvlogo,
+                )),
+              ),
+              //Terms of Services
+              const ServicesTextWidget(),
+
+              const CallServiceWidget()
             ],
           ),
         ));
+  }
+}
+
+class CallServiceWidget extends StatelessWidget {
+  const CallServiceWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        margin: const EdgeInsets.only(top: 30),
+        child: Column(
+          children: [
+            const Text('yammobots  logo',
+                style: TextStyle(
+                  fontWeight: FontWeight.w800,
+                  color: Color(0xff2563EB),
+                  fontSize: 25,
+                )),
+            const Text('Call us for more help',
+                style: TextStyle(
+                  fontWeight: FontWeight.w400,
+                  color: kTextColorThree,
+                  fontSize: 15,
+                )),
+            GestureDetector(
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const Ticket()),
+                );
+              },
+              child: Container(
+                  margin: const EdgeInsets.only(
+                      left: 50, right: 50, top: 30, bottom: 40),
+                  height: 50,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(20),
+                      color: const Color(0xff2563EB)),
+                  child: const Center(
+                      child: Text('Technical Phone',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              fontSize: 18)))),
+            )
+          ],
+        ));
+  }
+}
+
+class ServicesTextWidget extends StatelessWidget {
+  const ServicesTextWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.white,
+      child: const Padding(
+        padding: EdgeInsets.only(left: 10, top: 15, bottom: 20),
+        child: Column(
+          children: [
+            Text('Terms of Services',
+                style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: kTextColorThree)),
+            Padding(
+              padding: EdgeInsets.only(top: 10, left: 5),
+              child: Text(
+                  '  Fusce volutpat euismod et pretium id, volutpat et tortor. In vulputate lorem quis dui vestibulum, vitae imperdiet diam bibendum. ',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                      color: kTextColorThree)),
+            ),
+            //2sentence
+            Padding(
+              padding: EdgeInsets.only(top: 10, left: 5),
+              child: Text(
+                  '  Nunc sapien diam, euismod et pretium id, volutpat et tortor. In vulputate lorem quis dui vestibulum, vitae imperdiet diam bibendum. ',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                      color: kTextColorThree)),
+            ),
+
+            Padding(
+              padding: EdgeInsets.only(top: 10, left: 5),
+              child: Text(
+                  ' In vitae scelerisque augue, in varius eros. Nunc sapien diam, euismod et pretium id, volutpat et tortor. In vulputate lorem quis dui vestibulum, vitae imperdiet diam bibendum. ',
+                  style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w400,
+                      color: kTextColorThree)),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 }
 

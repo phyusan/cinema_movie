@@ -1,4 +1,3 @@
-import 'package:cinema_movie/homepage/screen/Booking_page/BookingDetail/expire_booking.dart';
 import 'package:cinema_movie/homepage/screen/Booking_page/BookingWidget/cinema_text.dart';
 import 'package:flutter/material.dart';
 
@@ -7,20 +6,21 @@ import '../../../../const.dart';
 class CinemaShowMovieWidget extends StatelessWidget {
   const CinemaShowMovieWidget({
     super.key,
+    required this.bookingtext,
+    required this.timetext,
+    required this.changeColor,
+    this.pressOnSeeMore,
   });
-
+  final String bookingtext;
+  final String timetext;
+  final bool changeColor;
+  final GestureTapCallback? pressOnSeeMore;
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 15),
       child: GestureDetector(
-        onTap: () {
-          print('click');
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => const ExpireBooking()),
-          );
-        },
+        onTap: pressOnSeeMore,
         child: Container(
             width: double.infinity,
             height: 250,
@@ -70,26 +70,26 @@ class CinemaShowMovieWidget extends StatelessWidget {
                   ],
                 ),
                 const Divider(),
-                const Row(
+                Row(
                   children: [
                     Padding(
-                      padding: EdgeInsets.only(left: 10),
-                      child: Text('Your booking will expire in',
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Text(bookingtext,
                           softWrap: true,
                           maxLines: 1,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w400,
                               color: Color(0xff64748B))),
                     ),
-                    SizedBox(width: 10),
-                    Text('30m 20s',
+                    const SizedBox(width: 20),
+                    Text(timetext,
                         softWrap: true,
                         maxLines: 1,
                         style: TextStyle(
                             fontSize: 18,
                             fontWeight: FontWeight.w700,
-                            color: kboxColor)),
+                            color: changeColor ? kboxColor : Colors.green)),
                   ],
                 )
               ],
