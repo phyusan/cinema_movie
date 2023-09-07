@@ -1,5 +1,4 @@
 import 'package:cinema_movie/const.dart';
-import 'package:cinema_movie/homepage/screen/Booking_page/BookingDetail/ticket.dart';
 import 'package:flutter/material.dart';
 
 class CallServiceWidget extends StatelessWidget {
@@ -26,12 +25,7 @@ class CallServiceWidget extends StatelessWidget {
                   fontSize: 15,
                 )),
             GestureDetector(
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const Ticket()),
-                );
-              },
+              onTap: () {},
               child: Container(
                   margin: const EdgeInsets.only(
                       left: 50, right: 50, top: 30, bottom: 40),

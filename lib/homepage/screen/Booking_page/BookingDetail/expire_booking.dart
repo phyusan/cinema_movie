@@ -19,7 +19,7 @@ class ExpireBooking extends StatelessWidget {
             children: [
               Container(
                   height: 230,
-                  color: Colors.grey.shade100,
+                  color: const Color.fromARGB(255, 219, 211, 211),
                   child: Padding(
                     padding: const EdgeInsets.all(15),
                     child: Column(
