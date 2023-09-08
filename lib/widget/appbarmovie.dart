@@ -9,6 +9,7 @@ AppBar BookingApp(String title, BuildContext context) {
             Navigator.pop(context);
           },
           child: const Icon(Icons.arrow_back_ios)),
+      elevation: 0,
       title: Text(
         title,
         style: const TextStyle(

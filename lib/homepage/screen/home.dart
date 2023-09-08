@@ -12,13 +12,11 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
-  final GlobalKey _bottomNavigationKey = GlobalKey();
   late Animation<double> animation;
   late AnimationController controller;
 
   @override
   Widget build(BuildContext context) {
-    int page = 0;
     return Scaffold(
         bottomNavigationBar: ClipRRect(
           child: BottomNavigationBar(
@@ -26,7 +24,6 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
             showUnselectedLabels: false,
             unselectedItemColor: Colors.white,
             selectedItemColor: kboxColor,
-            // selectedIconTheme: const IconThemeData(color: Color(0xff617A55)),
             elevation: 100,
             type: BottomNavigationBarType.fixed,
             backgroundColor: kSecondaryColor,
@@ -43,8 +40,7 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
                   icon: Icon(
                     Icons.book,
                   ),
-                  // Icon(Icons.home, size: _selectedIndex == 0 ? 30 : 20),
-                  label: "Category"),
+                  label: "Booking"),
               BottomNavigationBarItem(
                   icon: Icon(Icons.person,
                       color: _selectedIndex == 2 ? kboxColor : Colors.white),

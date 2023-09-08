@@ -57,7 +57,7 @@ class TextColumnWidget extends StatelessWidget {
             Text(SmallText,
                 style: const TextStyle(
                     decoration: TextDecoration.none,
-                    fontSize: 15,
+                    fontSize: 18,
                     color: Color(0xffF9FAFB),
                     fontWeight: FontWeight.w400)),
           ],

@@ -1,7 +1,6 @@
 import 'package:cinema_movie/const.dart';
 import 'package:cinema_movie/homepage/data/api.dart';
 import 'package:cinema_movie/homepage/model/movie_detail_model.dart';
-import 'package:cinema_movie/homepage/model/movie_list_model.dart';
 
 import 'package:cinema_movie/widget/textwidget.dart';
 import 'package:flutter/material.dart';
@@ -135,50 +134,36 @@ class _MovieDetailState extends ConsumerState<MovieDetail> {
                           child: SvgPicture.asset(ratingphoto)),
 
                       //detail text
-                      const Padding(
-                          padding: EdgeInsets.only(left: 20),
-                          child: Text(
-                              'Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started, Jake must work with Neytiri and the army of the Navi race to protect their home.',
-                              style: TextStyle(
+                      Padding(
+                          padding: const EdgeInsets.only(left: 20),
+                          child: Text(snapShot.data![0].synopsis!,
+                              style: const TextStyle(
                                   decoration: TextDecoration.none,
                                   fontSize: 15,
                                   color: Color(0xffD1D5DB),
                                   fontWeight: FontWeight.w400))),
 
                       //Cast
-                      const Padding(
-                        padding: EdgeInsets.only(bottom: 10, top: 10),
-                        child: TextColumnWidget(
-                          LargeText: 'Cast',
-                          SmallText:
-                              'Zoe Saldaña, Sam Worthington, Sigourney Weaver, Stephen Lang, Cliff Curtis, Joel David Moore, CCH Pounder, Edie Falco, Jemaine Clement, Kate Winslet',
-                        ),
+                      TextColumnWidget(
+                        LargeText: 'Cast',
+                        SmallText: snapShot.data![0].cast!,
                       ),
 
-                      const Padding(
-                        padding: EdgeInsets.only(bottom: 10, top: 10),
-                        child: TextColumnWidget(
-                          LargeText: 'Directed By',
-                          SmallText: 'James Cameron',
-                        ),
+                      TextColumnWidget(
+                        LargeText: 'Directed By',
+                        SmallText: snapShot.data![0].director!,
                       ),
 
-                      const Padding(
-                        padding: EdgeInsets.only(bottom: 10, top: 10),
-                        child: TextColumnWidget(
-                          LargeText: 'Produced By',
-                          SmallText: 'James Cameron, Jon Landau',
-                        ),
+                      const TextColumnWidget(
+                        LargeText: 'Produced By',
+                        SmallText: 'James Cameron, Jon Landau',
                       ),
 
                       //runtime
 
-                      const Padding(
-                        padding: EdgeInsets.only(bottom: 10, top: 10),
-                        child: TextColumnWidget(
-                          LargeText: 'Run Time',
-                          SmallText: '2 hours 15 mins',
-                        ),
+                      const TextColumnWidget(
+                        LargeText: 'Run Time',
+                        SmallText: '2 hours 15 mins',
                       ),
                     ],
                   ),
@@ -187,5 +172,3 @@ class _MovieDetailState extends ConsumerState<MovieDetail> {
     );
   }
 }
-
-late final MovieList? detmov;

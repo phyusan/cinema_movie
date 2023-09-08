@@ -6,6 +6,7 @@ import 'package:cinema_movie/homepage/screen/Home_page/widget/top_series_movie.d
 import 'package:cinema_movie/widget/appbarmovie.dart';
 import 'package:cinema_movie/widget/textwidget.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 import 'package:cinema_movie/homepage/data/provider.dart';
@@ -21,7 +22,7 @@ class _HomepageState extends ConsumerState<Homepage> {
   @override
   Widget build(BuildContext context) {
     final data = ref.watch(mov);
-
+    SystemChannels.textInput.invokeMethod('TextInput.hide');
     return Scaffold(
         backgroundColor: kSecondaryColor,
         appBar: appbarmovie(),
@@ -34,6 +35,8 @@ class _HomepageState extends ConsumerState<Homepage> {
                   Text1: 'RECOMMENDED',
                 ),
               ),
+
+              //Grid View
               Padding(
                 padding: const EdgeInsets.only(top: 20, left: 20),
                 child: data.when(
