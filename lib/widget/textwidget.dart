@@ -35,11 +35,11 @@ class TextRowWidget extends StatelessWidget {
 class TextColumnWidget extends StatelessWidget {
   const TextColumnWidget({
     super.key,
-    required this.LargeText,
-    required this.SmallText,
+    required this.largeText,
+    required this.smallText,
   });
-  final String LargeText;
-  final String SmallText;
+  final String largeText;
+  final String smallText;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -47,14 +47,14 @@ class TextColumnWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(LargeText,
+            Text(largeText,
                 style: const TextStyle(
                     decoration: TextDecoration.none,
                     fontSize: 20,
                     color: Color(0xffF9FAFB),
                     fontWeight: FontWeight.w700)),
             const SizedBox(height: 14),
-            Text(SmallText,
+            Text(smallText,
                 style: const TextStyle(
                     decoration: TextDecoration.none,
                     fontSize: 18,

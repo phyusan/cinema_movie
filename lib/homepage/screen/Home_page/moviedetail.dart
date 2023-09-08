@@ -145,25 +145,25 @@ class _MovieDetailState extends ConsumerState<MovieDetail> {
 
                       //Cast
                       TextColumnWidget(
-                        LargeText: 'Cast',
-                        SmallText: snapShot.data![0].cast!,
+                        largeText: 'Cast',
+                        smallText: snapShot.data![0].cast!,
                       ),
 
                       TextColumnWidget(
-                        LargeText: 'Directed By',
-                        SmallText: snapShot.data![0].director!,
+                        largeText: 'Directed By',
+                        smallText: snapShot.data![0].director!,
                       ),
 
                       const TextColumnWidget(
-                        LargeText: 'Produced By',
-                        SmallText: 'James Cameron, Jon Landau',
+                        largeText: 'Produced By',
+                        smallText: 'James Cameron, Jon Landau',
                       ),
 
                       //runtime
 
                       const TextColumnWidget(
-                        LargeText: 'Run Time',
-                        SmallText: '2 hours 15 mins',
+                        largeText: 'Run Time',
+                        smallText: '2 hours 15 mins',
                       ),
                     ],
                   ),

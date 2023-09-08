@@ -89,10 +89,13 @@ class _FeatureMovieWidgetState extends ConsumerState<FeatureMovieWidget> {
                     })),
               );
             },
+
+            //error show
             error: (Object error, StackTrace stackTrace) {
               return Text(error.toString(),
                   style: const TextStyle(color: Colors.white));
             },
+            //loading state
             loading: () {
               return const Center(child: CircularProgressIndicator());
             },

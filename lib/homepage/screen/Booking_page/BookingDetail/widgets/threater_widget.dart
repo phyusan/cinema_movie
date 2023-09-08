@@ -51,7 +51,7 @@ class PlaceWidget extends StatelessWidget {
           children: [
             Text('CINEMA',
                 style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 18,
                     fontWeight: FontWeight.w300,
                     color: kTextColorThree)),
             Text('Junctin City',

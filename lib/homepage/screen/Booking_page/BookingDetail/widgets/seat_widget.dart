@@ -4,28 +4,31 @@ import 'package:flutter/material.dart';
 class SeatnumberWidget extends StatelessWidget {
   const SeatnumberWidget({
     super.key,
+    required this.id,
+    required this.seatnumber,
   });
-
+  final String id;
+  final String seatnumber;
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.only(top: 30),
+    return Padding(
+      padding: const EdgeInsets.only(top: 30),
       child: Stack(
         children: [
-          Text('01',
-              style: TextStyle(
+          Text(id,
+              style: const TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.w300,
                   color: kTextColorThree)),
           Padding(
-            padding: EdgeInsets.only(left: 50),
-            child: Text('A04',
-                style: TextStyle(
+            padding: const EdgeInsets.only(left: 50),
+            child: Text(seatnumber,
+                style: const TextStyle(
                     fontSize: 18,
                     fontWeight: FontWeight.w700,
                     color: kTextColorThree)),
           ),
-          Align(
+          const Align(
             alignment: Alignment.centerRight,
             child: Padding(
               padding: EdgeInsets.only(right: 10),
@@ -36,7 +39,7 @@ class SeatnumberWidget extends StatelessWidget {
                       color: kTextColorThree)),
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(top: 30),
             child: Align(
               alignment: Alignment.bottomRight,
@@ -50,7 +53,7 @@ class SeatnumberWidget extends StatelessWidget {
               ),
             ),
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(top: 50),
             child: Divider(),
           ),
