@@ -1,5 +1,4 @@
 import 'package:cinema_movie/const.dart';
-import 'package:cinema_movie/homepage/screen/Booking_page/BookingDetail/expire_booking.dart';
 import 'package:cinema_movie/homepage/screen/Booking_page/BookingDetail/widgets/call_service_widget.dart';
 import 'package:cinema_movie/homepage/screen/Booking_page/BookingDetail/widgets/services_text_widget.dart';
 import 'package:cinema_movie/homepage/screen/Booking_page/BookingDetail/widgets/threater_widget.dart';
@@ -13,11 +12,11 @@ class Ticket extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: BookingApp('Ticket Information'),
+        appBar: BookingApp('Ticket Information', context),
         body: SingleChildScrollView(
           child: Column(
             children: [
-              PaymentCardWidget(),
+              const PaymentCardWidget(),
               //Common Widget
 
               Container(

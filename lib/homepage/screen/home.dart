@@ -70,7 +70,9 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
     } else if (index == 1) {
       return const BookingPage();
     } else {
-      return Container();
+      return Container(
+        color: kSecondaryColor,
+      );
     }
   }
 }

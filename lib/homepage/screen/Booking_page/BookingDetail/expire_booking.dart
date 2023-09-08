@@ -13,13 +13,13 @@ class ExpireBooking extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: BookingApp('Transformer: Rise of the Beasts'),
+        appBar: BookingApp('Transformer: Rise of the Beasts', context),
         body: SingleChildScrollView(
           child: Column(
             children: [
               Container(
                   height: 230,
-                  color: const Color.fromARGB(255, 219, 211, 211),
+                  color: Colors.blueGrey.shade100,
                   child: Padding(
                     padding: const EdgeInsets.all(15),
                     child: Column(

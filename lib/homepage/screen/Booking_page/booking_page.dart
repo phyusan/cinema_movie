@@ -11,7 +11,7 @@ class BookingPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.grey.shade300,
-        appBar: BookingApp('Booking List'),
+        appBar: BookingApp('Booking List', context),
         body: SafeArea(
           child: Column(
             children: [

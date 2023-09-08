@@ -2,12 +2,13 @@ import 'package:cinema_movie/const.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-AppBar BookingApp(
-  String title,
-) {
+AppBar BookingApp(String title, BuildContext context) {
   return AppBar(
       leading: GestureDetector(
-          onTap: () {}, child: const Icon(Icons.arrow_back_ios)),
+          onTap: () {
+            Navigator.pop(context);
+          },
+          child: const Icon(Icons.arrow_back_ios)),
       title: Text(
         title,
         style: const TextStyle(

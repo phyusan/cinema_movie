@@ -49,7 +49,7 @@ class PlaceWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text('Cinema',
+            Text('CINEMA',
                 style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.w300,

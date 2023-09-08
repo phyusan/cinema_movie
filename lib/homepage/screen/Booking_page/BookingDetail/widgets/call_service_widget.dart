@@ -9,6 +9,7 @@ class CallServiceWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        color: Colors.blueGrey.shade100,
         margin: const EdgeInsets.only(top: 30),
         child: Column(
           children: [

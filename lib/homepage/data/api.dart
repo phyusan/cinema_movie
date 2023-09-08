@@ -28,15 +28,12 @@ class ApiService {
     var response = await http.get(Uri.parse(
         'https://showtimetestapi.azurewebsites.net/api/movie/detail?uniqueID=$id'));
 
-    //print('Response---$https://showtimetestapi.azurewebsites.net/api/movie/detail?uniqueID=$id');
     print('response-------$id');
 
     print(response.statusCode);
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body);
       movieDetail.add(DetailMovie.fromJson(data));
-
-      print('Result-------------------$movieDetail');
     } else {
       throw Exception(response.reasonPhrase);
     }
